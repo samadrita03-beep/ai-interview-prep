@@ -50,3 +50,11 @@ footer {
   padding: 20px;
   font-size: 14px;
 }
+nav {
+  display: flex;
+  justify-content: center;
+}
+section:nth-of-type(2) {
+  display: flex;
+  justify-content: space-around;
+}
