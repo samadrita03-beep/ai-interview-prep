@@ -17,6 +17,7 @@
         <h1>Ace Your Next Interview</h1>
         <p>An AI-powered platform to help you track your DSA progress, review your resume, and practice mock interviews — all in one place.</p>
         <button onclick="greetUser()">Get Started</button>
+        <p id="statusMessage"></p>
     </section>
     <section>
         <h2>What You Get</h2>
@@ -43,7 +44,7 @@
     </footer>
     <script>
         function greetUser() {
-            alert("Welcome to AI Interview Prep!");
+            document.getElementById("statusMessage").textContent = "Let's get started on your prep journey!";
         }
         
     </script>
