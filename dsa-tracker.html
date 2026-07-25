@@ -5,41 +5,51 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="dashboard.html">Dashboard</a>
-            <a href="dsa-tracker.html">DSA Tracker</a>
-        </nav>
-    </header>
-    <section>
-        <h1>Your DSA Progress</h1>
-        <ul id="topicList"></ul>
-    </section>
-    <section>
-        <div class="cards-container">
-            <div class="card">
-                <h3>Easy Solved</h3>
-                <p>0</p>
-            </div>
-            <div class="card">
-                <h3>Medium Solved</h3>
-                <p>0</p>
-            </div>
-            <div class="card">
-                <h3>Hard Solved</h3>
-                <p>0</p>
-            </div>
-        </div>
-    </section>
-    <script>
-        let topics = ["Arrays", "Linked Lists", "Trees", "Graphs", "Dynamic Programming"];
-        for (let i = 0; i < topics.length; i++) {
-            let listItem = document.createElement("li");
-            listItem.textContent = topics[i];
-            document.getElementById("topicList").appendChild(listItem);
-        }
+        <header>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="dsa-tracker.html">DSA Tracker</a>
+            </nav>
+        </header>
 
-    </script>
+        <section>
+            <h1>Your DSA Progress</h1>
+            <ul id="topicList"></ul>
+        </section>
+
+        <section>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Easy Solved</h3>
+                    <p>0</p>
+                </div>
+                <div class="card">
+                    <h3>Medium Solved</h3>
+                    <p>0</p>
+                </div>
+                <div class="card">
+                    <h3>Hard Solved</h3>
+                    <p>0</p>
+                </div>
+            </div>
+        </section>
+
+        <script>
+    
+            let problems = [
+                { name: "Two Sum", difficulty: "Easy", solved: false },
+                { name: "Binary Search", difficulty: "Easy", solved: true },
+                { name: "Merge Intervals", difficulty: "Medium", solved: false }
+            ];
+            for (let i = 0; i < problems.length; i++) {
+                let listItem = document.createElement("li");
+                listItem.textContent = problems[i].name + " (" + problems[i].difficulty + ")";
+               document.getElementById("topicList").appendChild(listItem);
+            }
+
+
+            
+        </script>
     </body>
 </html>
