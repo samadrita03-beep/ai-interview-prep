@@ -21,7 +21,7 @@
             <div class="cards-container">
                 <div class="card">
                     <h3>Problems Solved</h3>
-                    <p>0</p>
+                    <p id="totalSolved">0</p>
                 </div>
 
                 <div class="card">
@@ -35,5 +35,20 @@
                 </div>
             </div>
         </section>
+        <script>
+            let saved = localStorage.getItem("myProblems");
+            let totalSolved = 0;
+            if (saved) {
+                let problems = JSON.parse(saved);
+                for (let i = 0; i < problems.length; i++) {
+                    if (problems[i].solved) {
+                        totalSolved++;
+                    }
+                }
+            }
+            document.getElementById("totalSolved").textContent = totalSolved;
+            
+
+        </script>
     </body>
 </html>
