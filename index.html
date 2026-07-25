@@ -45,8 +45,13 @@
     </footer>
     <script>
         function greetUser() {
-             let name = document.getElementById("nameInput").value;
-             document.getElementById("statusMessage").textContent = "Welcome, " + name + "! Let's get started on your prep journey.";
+            let name = document.getElementById("nameInput").value;
+            if (name === "") {
+                document.getElementById("statusMessage").textContent = "Please enter your name first!";
+            }
+            else {
+                document.getElementById("statusMessage").textContent = "Welcome, " + name + "! Let's get started on your prep journey.";
+            }
         }
         
     </script>
