@@ -44,8 +44,12 @@
             ];
             for (let i = 0; i < problems.length; i++) {
                 let listItem = document.createElement("li");
-                listItem.textContent = problems[i].name + " (" + problems[i].difficulty + ")";
-               document.getElementById("topicList").appendChild(listItem);
+                if (problems[i].solved) {
+                    listItem.textContent = problems[i].name + " (" + problems[i].difficulty + ")"+"✅ " ;
+                } else {
+                    listItem.textContent = problems[i].name + " (" + problems[i].difficulty + ")"+"❌ ";
+                }
+                document.getElementById("topicList").appendChild(listItem);
             }
 
 
