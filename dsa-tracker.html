@@ -22,15 +22,15 @@
             <div class="cards-container">
                 <div class="card">
                     <h3>Easy Solved</h3>
-                    <p>0</p>
+                    <p id="easyCount">0</p>
                 </div>
                 <div class="card">
                     <h3>Medium Solved</h3>
-                    <p>0</p>
+                    <p id="mediumCount">0</p>
                 </div>
                 <div class="card">
                     <h3>Hard Solved</h3>
-                    <p>0</p>
+                    <p id="hardCount">0</p>
                 </div>
             </div>
         </section>
@@ -57,13 +57,31 @@
                     listItem.onclick = function() {
                         problems[i].solved = !problems[i].solved;
                         renderProblems();
+                        updateStats();
                     };
 
                     document.getElementById("topicList").appendChild(listItem);
                 }
             }
 
+            function updateStats() {
+                let easy = 0, medium = 0, hard = 0;
+
+                for (let i = 0; i < problems.length; i++) {
+                    if (problems[i].solved) {
+                        if (problems[i].difficulty === "Easy") easy++;
+                        if (problems[i].difficulty === "Medium") medium++;
+                        if (problems[i].difficulty === "Hard") hard++;
+                    }
+                }
+
+                document.getElementById("easyCount").textContent = easy;
+                document.getElementById("mediumCount").textContent = medium;
+                document.getElementById("hardCount").textContent = hard;
+            }
+
             renderProblems();
+            updateStats();
         </script>
     </body>
 </html>
