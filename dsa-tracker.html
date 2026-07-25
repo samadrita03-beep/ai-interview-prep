@@ -55,11 +55,9 @@
                 for (let i = 0; i < problems.length; i++) {
                     let listItem = document.createElement("li");
 
-                    if (problems[i].solved) {
-                        listItem.textContent = problems[i].name + " (" + problems[i].difficulty + ") ✅";
-                    } else {
-                        listItem.textContent = problems[i].name + " (" + problems[i].difficulty + ") ❌";
-                    }
+                    let text = problems[i].name + " (" + problems[i].difficulty + ") ";
+                    text += problems[i].solved ? "✅" : "❌";
+                    listItem.textContent = text;
 
                     listItem.onclick = function() {
                         problems[i].solved = !problems[i].solved;
@@ -68,6 +66,17 @@
                         updateStats();
                     };
 
+                    let deleteBtn = document.createElement("button");
+                    deleteBtn.textContent = "Delete";
+                    deleteBtn.onclick = function(event) {
+                        event.stopPropagation();
+                        problems.splice(i, 1);
+                        localStorage.setItem("myProblems", JSON.stringify(problems));
+                        renderProblems();
+                        updateStats();
+                    };
+
+                    listItem.appendChild(deleteBtn);
                     document.getElementById("topicList").appendChild(listItem);
                 }
             }
