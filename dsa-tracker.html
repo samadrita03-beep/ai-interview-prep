@@ -44,6 +44,11 @@
                 { name: "Merge Intervals", difficulty: "Medium", solved: false }
             ];
 
+            let saved = localStorage.getItem("myProblems");
+            if (saved) {
+                problems = JSON.parse(saved);
+            }
+
             function renderProblems() {
                 document.getElementById("topicList").innerHTML = "";
 
@@ -58,6 +63,7 @@
 
                     listItem.onclick = function() {
                         problems[i].solved = !problems[i].solved;
+                        localStorage.setItem("myProblems", JSON.stringify(problems));
                         renderProblems();
                         updateStats();
                     };
@@ -81,13 +87,18 @@
                 document.getElementById("mediumCount").textContent = medium;
                 document.getElementById("hardCount").textContent = hard;
             }
+
             function addProblem() {
                 let name = document.getElementById("newProblemInput").value;
+
                 if (name === "") {
                     return;
                 }
+
                 problems.push({ name: name, difficulty: "Easy", solved: false });
+                localStorage.setItem("myProblems", JSON.stringify(problems));
                 document.getElementById("newProblemInput").value = "";
+
                 renderProblems();
                 updateStats();
             }
