@@ -15,6 +15,8 @@
 
         <section>
             <h1>Your DSA Progress</h1>
+            <input type="text" id="newProblemInput" placeholder="Enter problem name">
+            <button onclick="addProblem()">Add Problem</button>
             <ul id="topicList"></ul>
         </section>
 
@@ -78,6 +80,16 @@
                 document.getElementById("easyCount").textContent = easy;
                 document.getElementById("mediumCount").textContent = medium;
                 document.getElementById("hardCount").textContent = hard;
+            }
+            function addProblem() {
+                let name = document.getElementById("newProblemInput").value;
+                if (name === "") {
+                    return;
+                }
+                problems.push({ name: name, difficulty: "Easy", solved: false });
+                document.getElementById("newProblemInput").value = "";
+                renderProblems();
+                updateStats();
             }
 
             renderProblems();
