@@ -50,10 +50,14 @@
                 document.getElementById("statusMessage").textContent = "Please enter your name first!";
             }
             else {
+                localStorage.setItem("userName", name);
                 document.getElementById("statusMessage").textContent = "Welcome, " + name + "! Let's get started on your prep journey.";
             }
         }
-        
+        let savedName = localStorage.getItem("userName");
+        if (savedName) {
+            document.getElementById("statusMessage").textContent = "Welcome back, " + savedName + "!";
+        }
     </script>
     </body>
 </html>
