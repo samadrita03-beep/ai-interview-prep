@@ -16,6 +16,7 @@
     <section>
         <h1>Ace Your Next Interview</h1>
         <p>An AI-powered platform to help you track your DSA progress, review your resume, and practice mock interviews — all in one place.</p>
+        <input type="text" id="nameInput" placeholder="Enter your name">
         <button onclick="greetUser()">Get Started</button>
         <p id="statusMessage"></p>
     </section>
@@ -44,7 +45,8 @@
     </footer>
     <script>
         function greetUser() {
-            document.getElementById("statusMessage").textContent = "Let's get started on your prep journey!";
+             let name = document.getElementById("nameInput").value;
+             document.getElementById("statusMessage").textContent = "Welcome, " + name + "! Let's get started on your prep journey.";
         }
         
     </script>
