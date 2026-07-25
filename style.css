@@ -130,3 +130,17 @@ input[type="text"]:focus {
 #topicList button:hover {
   background-color: #c0392b;
 }
+#newProblemInput {
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 24px;
+  margin-right: 12px;
+  width: 250px;
+}
+
+#newProblemInput:focus {
+  outline: none;
+  border-color: #1a1a2e;
+}

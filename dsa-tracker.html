@@ -16,6 +16,11 @@
         <section>
             <h1>Your DSA Progress</h1>
             <input type="text" id="newProblemInput" placeholder="Enter problem name">
+            <select id="difficultySelect">
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
             <button onclick="addProblem()">Add Problem</button>
             <ul id="topicList"></ul>
         </section>
@@ -55,9 +60,11 @@
                 for (let i = 0; i < problems.length; i++) {
                     let listItem = document.createElement("li");
 
-                    let text = problems[i].name + " (" + problems[i].difficulty + ") ";
-                    text += problems[i].solved ? "✅" : "❌";
-                    listItem.textContent = text;
+                    if (problems[i].solved) {
+                        listItem.textContent = problems[i].name + " (" + problems[i].difficulty + ") ✅";
+                    } else {
+                        listItem.textContent = problems[i].name + " (" + problems[i].difficulty + ") ❌";
+                    }
 
                     listItem.onclick = function() {
                         problems[i].solved = !problems[i].solved;
@@ -66,17 +73,6 @@
                         updateStats();
                     };
 
-                    let deleteBtn = document.createElement("button");
-                    deleteBtn.textContent = "Delete";
-                    deleteBtn.onclick = function(event) {
-                        event.stopPropagation();
-                        problems.splice(i, 1);
-                        localStorage.setItem("myProblems", JSON.stringify(problems));
-                        renderProblems();
-                        updateStats();
-                    };
-
-                    listItem.appendChild(deleteBtn);
                     document.getElementById("topicList").appendChild(listItem);
                 }
             }
@@ -99,6 +95,8 @@
 
             function addProblem() {
                 let name = document.getElementById("newProblemInput").value;
+                let difficulty = document.getElementById("difficultySelect").value;
+
 
                 if (name === "") {
                     return;
@@ -116,4 +114,4 @@
             updateStats();
         </script>
     </body>
-</html>
+</ht
