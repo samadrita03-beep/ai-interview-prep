@@ -14,6 +14,7 @@
     </header>
     <section>
         <h1>Your DSA Progress</h1>
+        <ul id="topicList"></ul>
     </section>
     <section>
         <div class="cards-container">
@@ -31,5 +32,14 @@
             </div>
         </div>
     </section>
+    <script>
+        let topics = ["Arrays", "Linked Lists", "Trees", "Graphs", "Dynamic Programming"];
+        for (let i = 0; i < topics.length; i++) {
+            let listItem = document.createElement("li");
+            listItem.textContent = topics[i];
+            document.getElementById("topicList").appendChild(listItem);
+        }
+
+    </script>
     </body>
 </html>
